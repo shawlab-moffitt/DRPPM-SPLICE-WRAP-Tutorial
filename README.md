@@ -29,14 +29,14 @@ More information on installation and dependencies can be found on the [DRPPM Git
 1. If starting with FASTQ files, gather a list of FASTQ files and run through -Fastq2FileList function.
    * This step is not needed if starting with BAM files
    * This will pair the FASTQ files on the same line
-   * For our example we gathered the path and file name for all the FASTQs in a preliminary [fastq.lst]() file
+   * For our example we gathered the path and file name for all the FASTQs in a preliminary [fastq.lst](https://github.com/shawlab-moffitt/DRPPM-WRAP-Tutorial/blob/main/fastq.lst) file
 ```
 drppm -Fastq2FileList [inputFile] [outputFile]
 drppm -Fastq2FileList fastq.lst USP7.lst
 ```
 
 2. The .lst file will then need to be edited with further information on each line in the format below.
-   * Example found here: [USP7.lst]()
+   * Example found here: [USP7.lst](https://github.com/shawlab-moffitt/DRPPM-WRAP-Tutorial/blob/main/USP7.lst)
    * This was done manually but a script is in development to assist in generation of this file.
 ```
 [Sample_Name]\t[FASTQ_1]\t[FASTQ_2]\t[Read_Length]\t[Forward_or_Reverse] #If using FASTQ files
@@ -45,7 +45,7 @@ drppm -Fastq2FileList fastq.lst USP7.lst
 
 ### Construct Config File
 
-1. Edit the config file, [hg38_WRAP.config](), which will configure which functions to generate for the pipeline
+1. Edit the config file, [hg38_WRAP.config](https://github.com/shawlab-moffitt/DRPPM-WRAP-Tutorial/blob/main/hg38_WRAP.config), which will configure which functions to generate for the pipeline
    * This file contains the location of various files used within the pipeline and some configuration options.
    * Below shows the different arguments in the script. If you want to run the analysis set the boolean to 'false'
 ```
@@ -67,7 +67,7 @@ SKIP_OPTITYPE = false             # HLA Genotyping Prediction
 
 ### Construct and Run the Step 1 Script
 
-1. An example of this script can be found here: [step1_setup_generate_comprehensive_script.sh]()
+1. An example of this script can be found here: [step1_setup_generate_comprehensive_script.sh](https://github.com/shawlab-moffitt/DRPPM-WRAP-Tutorial/blob/main/step1_setup_generate_comprehensive_script.sh)
 2. This script will run the .lst and .config file together and produce further files and folders for the proceeding analysis.
    * The main output script defined in the command consists of a script for each sample containing the pipeline commands.
 3. This script contains just one line (seen below) for the -WrappingMyRNAseqAnalysisPipeline fuction
