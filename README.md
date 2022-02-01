@@ -36,6 +36,7 @@ drppm -Fastq2FileList fastq.lst USP7.lst
 ```
 
 2. The .lst file will then need to be edited with further information on each line in the format below.
+   * Example found here: [USP7.lst]()
    * This was done manually but a script is in development to assist in generation of this file.
 ```
 [Sample_Name]\t[FASTQ_1]\t[FASTQ_2]\t[Read_Length]\t[Forward_or_Reverse] #If using FASTQ files
@@ -62,6 +63,18 @@ SKIP_HTSEQ_GENE = false           # HTSEQ Gene Quantification
 SKIP_JUNCSALVAGER = false         # Splice Junction Calculation
 SKIP_RNAEDIT = false              # bam-readcount Function
 SKIP_OPTITYPE = false             # HLA Genotyping Prediction
+```
+
+### Construct and Run the Step 1 Script
+
+1. An example of this script can be found here: [step1_setup_generate_comprehensive_script.sh]()
+2. This script will run the .lst and .config file together and produce further files and folders for the proceeding analysis.
+   * The main output script defined in the command consists of a script for each sample containing the pipeline commands.
+3. This script contains just one line (seen below) for the -WrappingMyRNAseqAnalysisPipeline fuction
+   * You may edit the line in the script and run the script or paste the edited line into the command line to run the function
+```
+drppm -WrappingMyRNAseqAnalysisPipeline [inputFileLst] [type: FASTQ, BAM] [remapping flag: true or false] [run time config file] [prefix for output folder] [outputShellscript]
+drppm -WrappingMyRNAseqAnalysisPipeline USP7.lst FASTQ false hg38_WRAP.config Output execute_everything.sh
 ```
 
 
