@@ -28,4 +28,6 @@ drppm -Fastq2FileList fastq.lst USP7.lst
 ```
 
 2. The .lst file will then need to be edited with further information on each line in the format below.
+```
 [Sample_Name]\t[FASTQ_1]\t[FASTQ_2]\t[Read_Length]\t[Forward_or_Reverse]
+```
