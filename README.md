@@ -12,7 +12,7 @@
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
 | RSEQC_2.6.4 | STAR_2.7.6a | ucsctools_1.04.00 | GCC_5.5.0 | python_2.7.9 |
-| samtools_1.1 | fastqc_0.11.7 | Bedtools_2.27.1 | R_3.5.1 |  |
+| samtools_1.1 | fastqc_0.11.7 | Bedtools_2.27.1 | R_3.5.1 | bam-readcount_0.8.0 |
 
 ### Git Checkout
 
@@ -176,6 +176,7 @@ module load fastqc/0.11.7
 module load python/2.7.9
 module load R/3.5.1
 module load bedtools2/2.27.1
+module load bam-readcount/0.8.0
 
 # Each line/shell script of the excute_everything.sh script if run through here as a seperate but grouped job
 ${line}
