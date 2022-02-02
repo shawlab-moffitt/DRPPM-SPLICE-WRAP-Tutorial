@@ -121,9 +121,9 @@ drppm -WrappingMyRNAseqAnalysisPipeline USP7.lst FASTQ false hg38_WRAP.config Ou
 │   │       └── JK_A2_1_ERCC_S26_star_file.lst
 │   └── JK_A2_1_ERCC_S26.sh
 ├── Output
-|   ├── global_qc_summary
+│   ├── global_qc_summary
 │   │   └── input
-|   ├── JK_A2_1_ERCC_S26
+│   ├── JK_A2_1_ERCC_S26
 │   │   ├── htseq_exon_level
 │   │   ├── htseq_gene_level
 │   │   ├── juncsalvager
