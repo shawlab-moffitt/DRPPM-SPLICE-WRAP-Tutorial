@@ -85,39 +85,39 @@ drppm -WrappingMyRNAseqAnalysisPipeline USP7.lst FASTQ false hg38_WRAP.config Ou
 2. The 'execute_everything.sh' script that is generated from the [Step1 Script]() contains a command to run the pipeline for each sample
 3. Below shows what the current folder structure should appear as given one sample:
 ```bash
-|-- alyssa_summary_files.lst
-|-- execute_everything.sh
-|-- hg38_WRAP.config
-|-- htseq_exon_files.lst
-|-- htseq_gene_files.lst
-|-- output2matrix.sh
-|-- psi_pso_files.lst
-|-- rseqc_files.lst
-|-- splicing_deficiency_files.lst
-|-- star_finalout_files.lst
-|-- step1_setup_generate_comprehensive_script.sh
-|-- USP7.lst
-|-- Intermediate
-|   |-- JK_A2_1_ERCC_S26
-|   |   |-- htseq_exon_level
-|   |   |   |-- JK_A2_1_ERCC_S26.exon.htseq.lst
-|   |   |   |-- JK_A2_1_ERCC_S26.htseq.lst
-|   |   |-- htseq_gene_level
-|   |   |   |-- JK_A2_1_ERCC_S26.htseq.lst
-|   |   |-- juncsalvager
-|   |   |   |-- JK_A2_1_ERCC_S26.juncsalvager.lst
-|   |   |-- optitype
-|   |   |-- psipso
-|   |   |   |-- JK_A2_1_ERCC_S26.SJ.file.lst
-|   |   |-- qc
-|   |   |   |-- fastqc
-|   |   |-- qc_summary
-|   |   |-- rnaediting
-|   |   |-- rseqc
-|   |   |-- splicingdeficiency
-|   |   |   |-- JK_A2_1_ERCC_S26_bam_file.lst
-|   |   |-- star
-|   |       |-- JK_A2_1_ERCC_S26_star_file.lst
-|   |-- JK_A2_1_ERCC_S26.sh
+├── alyssa_summary_files.lst
+├── execute_everything.sh
+├── hg38_WRAP.config
+├── htseq_exon_files.lst
+├── htseq_gene_files.lst
+├── output2matrix.sh
+├── psi_pso_files.lst
+├── rseqc_files.lst
+├── splicing_deficiency_files.lst
+├── star_finalout_files.lst
+├── step1_setup_generate_comprehensive_script.sh
+├── USP7.lst
+├── Intermediate
+|   ├── JK_A2_1_ERCC_S26
+|   |   ├── htseq_exon_level
+|   |   |   ├── JK_A2_1_ERCC_S26.exon.htseq.lst
+|   |   |   └── JK_A2_1_ERCC_S26.htseq.lst
+|   |   ├── htseq_gene_level
+|   |   |   └── JK_A2_1_ERCC_S26.htseq.lst
+|   |   ├── juncsalvager
+|   |   |   └── JK_A2_1_ERCC_S26.juncsalvager.lst
+|   |   ├── optitype
+|   |   ├── psipso
+|   |   |   └── JK_A2_1_ERCC_S26.SJ.file.lst
+|   |   ├── qc
+|   |   |   └── fastqc
+|   |   ├── qc_summary
+|   |   ├── rnaediting
+|   |   ├── rseqc
+|   |   ├── splicingdeficiency
+|   |   |   └── JK_A2_1_ERCC_S26_bam_file.lst
+|   |   ├── star
+|   |       └── JK_A2_1_ERCC_S26_star_file.lst
+|   └── JK_A2_1_ERCC_S26.sh
 ```
 
