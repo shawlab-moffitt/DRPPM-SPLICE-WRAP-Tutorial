@@ -101,23 +101,23 @@ drppm -WrappingMyRNAseqAnalysisPipeline USP7.lst FASTQ false hg38_WRAP.config Ou
 |   |-- JK_A2_1_ERCC_S26
 |   |   |-- htseq_exon_level
 |   |   |   |-- JK_A2_1_ERCC_S26.exon.htseq.lst
-|   |   |   `-- JK_A2_1_ERCC_S26.htseq.lst
+|   |   |   |-- JK_A2_1_ERCC_S26.htseq.lst
 |   |   |-- htseq_gene_level
-|   |   |   `-- JK_A2_1_ERCC_S26.htseq.lst
+|   |   |   |-- JK_A2_1_ERCC_S26.htseq.lst
 |   |   |-- juncsalvager
-|   |   |   `-- JK_A2_1_ERCC_S26.juncsalvager.lst
+|   |   |   |-- JK_A2_1_ERCC_S26.juncsalvager.lst
 |   |   |-- optitype
 |   |   |-- psipso
-|   |   |   `-- JK_A2_1_ERCC_S26.SJ.file.lst
+|   |   |   |-- JK_A2_1_ERCC_S26.SJ.file.lst
 |   |   |-- qc
-|   |   |   `-- fastqc
+|   |   |   |-- fastqc
 |   |   |-- qc_summary
 |   |   |-- rnaediting
 |   |   |-- rseqc
 |   |   |-- splicingdeficiency
-|   |   |   `-- JK_A2_1_ERCC_S26_bam_file.lst
-|   |   `-- star
-|   |       `-- JK_A2_1_ERCC_S26_star_file.lst
-|   `-- JK_A2_1_ERCC_S26.sh
+|   |   |   |-- JK_A2_1_ERCC_S26_bam_file.lst
+|   |   |-- star
+|   |       |-- JK_A2_1_ERCC_S26_star_file.lst
+|   |-- JK_A2_1_ERCC_S26.sh
 ```
 
