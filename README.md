@@ -12,7 +12,7 @@
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
 | RSEQC_2.6.4 | STAR_2.7.6a | ucsctools_1.04.00 | GCC_5.5.0 | python_2.7.9 |
-| glibc_2.14.1 | samtools_1.1 | fastqc_0.11.7 | R_3.5.1 | Bedtools_2.27.1 |
+| samtools_1.1 | fastqc_0.11.7 | R_3.5.1 | Bedtools_2.27.1 |  |
 
 ### Git Checkout
 
@@ -81,8 +81,8 @@ drppm -WrappingMyRNAseqAnalysisPipeline USP7.lst FASTQ false hg38_WRAP.config Ou
 
 ### Folder Structure
 
-1. The [Step1 Script]() generates a variety of .lst files, bash scripts, and folders for each sample that will facilitate the analysis.
-2. The 'execute_everything.sh' script that is generated from the [Step1 Script]() contains a command to run the pipeline for each sample
+1. The [Step1 Script](https://github.com/shawlab-moffitt/DRPPM-WRAP-Tutorial#construct-and-run-the-step-1-script) generates a variety of .lst files, bash scripts, and folders for each sample that will facilitate the analysis.
+2. The 'execute_everything.sh' script that is generated from the [Step1 Script](https://github.com/shawlab-moffitt/DRPPM-WRAP-Tutorial#construct-and-run-the-step-1-script) contains a command to run the pipeline for each sample
 3. Below shows what the current folder structure should appear as given one sample:
    * To note: The Intermediate and Output folders contain sub folders for each sample. The pipeline is originally run in the Intermediate folder and the final outputs of the process are transferred to the Output folder for that sample.
 ```bash
@@ -140,5 +140,35 @@ drppm -WrappingMyRNAseqAnalysisPipeline USP7.lst FASTQ false hg38_WRAP.config Ou
 
 ### Running the Pipeline as a Batch Script
 
+1. Following the setup, the pipeline is run with the 'execute_everything.sh' script.
+   * This is regularly done as an array batch job
+   * Depending on the system and amount of resources, the lines that set up the parameters of the job may change per user
+   * Below is an example of a batch script used for submission:
 
+```bash
+#!/bin/bash
+#PBS -l walltime=48:00:00                       # 48 hour runtime
+#PBS -l nodes=1:ppn=1,pmem=64gb,mem=64gb        # Request 1 node, 1 processor per node, and 64gb of memory
+#PBS -t 1-10                                    # Run 10 processes at once
+
+
+export PATH=$PATH:/share/dept_bbsr/Projects/Shaw_Timothy/3352_Splicing_Pipeline_2021/scripts/src/STAR-2.7.6a/source:/share/dept_bbsr/Projects/Shaw_Timothy/3352_Splicing_Pipeline_2021/scripts/DRPPM/DRPPM-master/export/:/share/dept_bbsr/Projects/Shaw_Timothy/3352_Splicing_Pipeline_2021/scripts/src/RSeQC-2.6.4/install/share/apps/python-2.7.9/bin/:/share/Lab_Shaw/software/bin/
+
+# Establish starting directory
+cd /share/Lab_Shaw/projects/ShawLab/USP7_shRNA_A_Project/USP7_WRAP_Pipeline/
+
+# Assigns an ArrayID (1-10) to each line (p) in the execute_everything.sh script, where each line is a seperate shell script
+line=`sed -n "${PBS_ARRAYID}p" execute_everything.sh`
+
+# Essential modules for scripts
+module load gcc/5.5.0
+module load samtools/1.1
+module load fastqc/0.11.7
+module load python/2.7.9
+module load R/3.5.1
+module load bedtools2/2.27.1
+
+# Each line/shell script of the excute_everything.sh script if run through here as a seperate but grouped job
+${line}
+```
 
