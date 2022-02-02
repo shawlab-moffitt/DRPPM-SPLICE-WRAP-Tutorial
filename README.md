@@ -84,6 +84,7 @@ drppm -WrappingMyRNAseqAnalysisPipeline USP7.lst FASTQ false hg38_WRAP.config Ou
 1. The [Step1 Script]() generates a variety of .lst files, bash scripts, and folders for each sample that will facilitate the analysis.
 2. The 'execute_everything.sh' script that is generated from the [Step1 Script]() contains a command to run the pipeline for each sample
 3. Below shows what the current folder structure should appear as given one sample:
+   * To note: The I
 ```bash
 ├── alyssa_summary_files.lst
 ├── execute_everything.sh
@@ -119,5 +120,23 @@ drppm -WrappingMyRNAseqAnalysisPipeline USP7.lst FASTQ false hg38_WRAP.config Ou
 │   │   ├── star
 │   │       └── JK_A2_1_ERCC_S26_star_file.lst
 │   └── JK_A2_1_ERCC_S26.sh
+├── Output
+|   ├── global_qc_summary
+│   │   └── input
+|   ├── JK_A2_1_ERCC_S26
+│   │   ├── htseq_exon_level
+│   │   ├── htseq_gene_level
+│   │   ├── juncsalvager
+│   │   ├── optitype
+│   │   ├── psipso
+│   │   ├── qc
+│   │   │   └── fastqc
+│   │   ├── qc_summary
+│   │   ├── rnaediting
+│   │   ├── rseqc
+│   │   ├── splicingdeficiency
+│   │   └── star
 ```
+
+
 
