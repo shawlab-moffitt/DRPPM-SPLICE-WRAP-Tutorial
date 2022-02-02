@@ -16,7 +16,7 @@
 
 ### Git Checkout
 
-```
+```bash
 git clone git@github.com:gatechatl/DRPPM.git # Clone the repo
 ```
 
@@ -30,7 +30,7 @@ More information on installation and dependencies can be found on the [DRPPM Git
    * This step is not needed if starting with BAM files
    * This will pair the FASTQ files on the same line
    * For our example we gathered the path and file name for all the FASTQs in a preliminary [fastq.lst](https://github.com/shawlab-moffitt/DRPPM-WRAP-Tutorial/blob/main/fastq.lst) file
-```
+```bash
 drppm -Fastq2FileList [inputFile] [outputFile]
 drppm -Fastq2FileList fastq.lst USP7.lst
 ```
