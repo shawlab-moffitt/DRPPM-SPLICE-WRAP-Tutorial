@@ -12,7 +12,7 @@
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
 | RSEQC_2.6.4 | STAR_2.7.6a | ucsctools_1.04.00 | GCC_5.5.0 | python_2.7.9 |
-| samtools_1.1 | fastqc_0.11.7 | R_3.5.1 | Bedtools_2.27.1 |  |
+| samtools_1.1 | fastqc_0.11.7 | Bedtools_2.27.1 | R_3.5.1 |  |
 
 ### Git Checkout
 
