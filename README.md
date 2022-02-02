@@ -84,7 +84,7 @@ drppm -WrappingMyRNAseqAnalysisPipeline USP7.lst FASTQ false hg38_WRAP.config Ou
 1. The [Step1 Script]() generates a variety of .lst files, bash scripts, and folders for each sample that will facilitate the analysis.
 2. The 'execute_everything.sh' script that is generated from the [Step1 Script]() contains a command to run the pipeline for each sample
 3. Below shows what the current folder structure should appear as given one sample:
-   * To note: The I
+   * To note: The Intermediate and Output folders contain sub folders for each sample. The pipeline is originally run in the Intermediate folder and the final outputs of the process are transferred to the Output folder for that sample.
 ```bash
 ├── alyssa_summary_files.lst
 ├── execute_everything.sh
@@ -137,6 +137,8 @@ drppm -WrappingMyRNAseqAnalysisPipeline USP7.lst FASTQ false hg38_WRAP.config Ou
 │   │   ├── splicingdeficiency
 │   │   └── star
 ```
+
+### Running the Pipeline as a Batch Script
 
 
 
