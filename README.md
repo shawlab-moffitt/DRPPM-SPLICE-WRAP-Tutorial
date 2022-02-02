@@ -182,3 +182,35 @@ module load bam-readcount/0.8.0
 ${line}
 ```
 
+```
+#!/bin/bash
+#PBS -l walltime=48:00:00                       # 48 hour runtime
+#PBS -l nodes=1:ppn=1,pmem=64gb,mem=64gb        # Request 1 node, 1 processor per node, and 64gb of memory
+#PBS -t 1-10                                    # Run 10 processes at once
+
+# Path to repositories for software or other required programs
+# Possible examples are paths to STAR, DRPPM, RSEQC, and wigToBigWig software or any of the modules listed further down
+export PATH=$PATH:PATH/TO/REQUIRED/DIRECTORY:PATH/TO/REQUIRED/DIRECTORY2
+
+# Establish starting directory
+# This directory should look like the folder tree shown above
+cd /PATH/TO/STARTING/DIRECTORY/
+
+# Assigns an ArrayID (1-10) to each line (p) in the execute_everything.sh script, where each line is a seperate shell script
+line=`sed -n "${PBS_ARRAYID}p" execute_everything.sh`
+
+# Essential modules for scripts
+# If the user has modularized libraries they may be loaded
+# If not, the paths to these programs should be in the PATH section
+module load gcc/5.5.0
+module load samtools/1.1
+module load fastqc/0.11.7
+module load python/2.7.9
+module load R/3.5.1
+module load bedtools2/2.27.1
+module load bam-readcount/0.8.0
+
+# Each line/shell script of the excute_everything.sh script if run through here as a seperate but grouped job
+${line}
+```
+
