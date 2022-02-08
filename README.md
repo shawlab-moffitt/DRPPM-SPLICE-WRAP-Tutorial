@@ -149,8 +149,11 @@ drppm -WrappingMyRNAseqAnalysisPipeline USP7.lst FASTQ false hg38_WRAP.config Ou
 
 1. Following the setup, the pipeline is run with the 'execute_everything.sh' script.
    * This is regularly done as an array batch job
+   * Samples normally take around two days to process but are given a week of wall time to prevent jobs failing due to going over their allotted time.
    * Depending on the system and amount of resources, the lines that set up the parameters of the job may change per user
-   * Below is an example input for a batch script used for submission:
+2. Below is an example input for a batch script used for submission.
+   * This example is used to run the pipeline on the Moffitt Cancer Center HPC Colossus Cluster
+   * The HPC will be transitioning to a new RED cluster where SLURM will be used to run jobs. Updates will be shown in this README
 
 ```bash
 #!/bin/bash
@@ -160,7 +163,7 @@ drppm -WrappingMyRNAseqAnalysisPipeline USP7.lst FASTQ false hg38_WRAP.config Ou
 
 # Path to repositories for software or other required programs
 # Possible examples are paths to STAR, DRPPM, RSEQC, and wigToBigWig software or any of the modules listed further down
-export PATH=$PATH:PATH/TO/REQUIRED/DIRECTORY:PATH/TO/REQUIRED/DIRECTORY2
+export PATH=$PATH:PATH/TO/REQUIRED/STAR/DIRECTORY/STAR-2.7.6a/source:PATH/TO/REQUIRED/DRPPM/DIRECTORY/DRPPM-master/export/:PATH/TO/REQUIRED/RSEQC/DIRECTORY/RSeQC-2.6.4/install/share/apps/python-2.7.9/bin/:PATH/TO/REQUIRED/wigToBigWigFunction/DIRECTORY/
 
 # Establish starting directory
 # This directory should look like the folder tree shown above
