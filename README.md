@@ -76,6 +76,7 @@ SKIP_OPTITYPE = false             # HLA Genotyping Prediction
    * The main output script defined in the command consists of a script for each sample containing the pipeline commands.
 3. This script contains just one line (seen below) for the -WrappingMyRNAseqAnalysisPipeline fuction
    * You may edit the line in the script and run the script or paste the edited line into the command line to run the function
+4. It is recommended and possibly required to run this script on an high performance computer as it requires a large amount of memory. If you have the option please run in interactive mode.
 
 ```bash
 drppm -WrappingMyRNAseqAnalysisPipeline [inputFileLst] [type: FASTQ, BAM] [remapping flag: true or false] [run time config file] [prefix for output folder] [outputShellscript]
@@ -153,9 +154,9 @@ drppm -WrappingMyRNAseqAnalysisPipeline USP7.lst FASTQ false hg38_WRAP.config Ou
 
 ```bash
 #!/bin/bash
-#PBS -l walltime=48:00:00                       # 48 hour runtime
-#PBS -l nodes=1:ppn=1,pmem=64gb,mem=64gb        # Request 1 node, 1 processor per node, and 64gb of memory
-#PBS -t 1-10                                    # Run 10 processes at once
+#PBS -l walltime=120:00:00                       # 120 hour runtime
+#PBS -l nodes=1:ppn=1,pmem=64gb,mem=64gb         # Request 1 node, 1 processor per node, and 64gb of memory
+#PBS -t 1-10                                     # Run 10 processes at once
 
 # Path to repositories for software or other required programs
 # Possible examples are paths to STAR, DRPPM, RSEQC, and wigToBigWig software or any of the modules listed further down
