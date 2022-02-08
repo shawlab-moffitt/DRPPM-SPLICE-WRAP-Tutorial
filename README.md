@@ -62,6 +62,7 @@ SKIP_RSEQC = false                # RSEQC Functions
 SKIP_PSI_PSO_CALC = false         # PSI/PSO Calculation
 SKIP_SPLICING_DEFICIENCY = false  # Splicing Deficiency Calculation
 SKIP_HTSEQ_EXON_QUANT = false     # HTSEQ Exon Quantification
+SKIP_HTSEQ_INTRON_QUANT = false   # HTSEQ Intron Quantification
 SKIP_HTSEQ_GENE = false           # HTSEQ Gene Quantification
 SKIP_JUNCSALVAGER = false         # Splice Junction Calculation
 SKIP_RNAEDIT = false              # bam-readcount Function
