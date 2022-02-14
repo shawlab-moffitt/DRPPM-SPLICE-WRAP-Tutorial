@@ -69,6 +69,15 @@ SKIP_RNAEDIT = false              # bam-readcount Function
 SKIP_OPTITYPE = false             # HLA Genotyping Prediction
 ```
 
+### Advanced Setup for Config File
+
+The current pipeline being demonstrated is referencing the hg38 genome build where all of the reference files within the config file are referencing this build. In anticipation of other genome builds being used, we have generated a script to help setup a reference folder for the genome build of your choice. This script generates GTF and BED files as well as a STAR index directory and other annotation files that are used within the pipeline. Below are steps that should be followed to create this reference directory using a hg19_GRCH37 build example where the 'chr' annotation is not used.
+
+```bash
+# Make a main directory to house your reference files
+mkdir hg19_GRCh37.v39lift37_nochr
+```
+
 ### Construct and Run the Step 1 Script
 
 1. An example of this script can be found here: [step1_setup_generate_comprehensive_script.sh](https://github.com/shawlab-moffitt/DRPPM-WRAP-Tutorial/blob/main/step1_setup_generate_comprehensive_script.sh)
