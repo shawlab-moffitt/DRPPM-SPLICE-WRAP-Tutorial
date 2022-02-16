@@ -207,4 +207,30 @@ ${line}
 
 ## Post-Processing
 
-### 
+When the pipeline commences there may be a large number of files output depending on the parameters given on what functions to run. With each sample being run separately from each other, it is importent to gather the data in the end to be able to relate the samples to one another and draw out possible inferences. There are a variety of post-processing script to help in gathering information from all the samples into a single file.
+
+### summarygen.py
+
+
+
+### ReadCountSummary.py
+
+
+
+### ps_PostProcess.py
+
+
+
+### htseq_ps_PostProcess.py
+
+
+
+## Intergation to the DRPPM EASY Shiny App
+
+
+
+
+
+
+
+
