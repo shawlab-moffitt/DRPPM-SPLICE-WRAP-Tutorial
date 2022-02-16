@@ -6,7 +6,7 @@
 [DRPPM](https://github.com/gatechatl/DRPPM) is a library collection of scripts for analyzing DNA/RNA/Proteome/Post-translational Modifications. Below is a example RNA-seq analysis workflow using the DRPPM software on FASTQ files from a study observing the knockdown of the USP7 gene in humans.
 
 <p align="center">
-  <img src="https://github.com/shawlab-moffitt/DRPPM-WRAP-Tutorial/blob/main/DRPPM_WRAP_Workflow.PNG" width="700" height="700" />
+  <img src="https://github.com/shawlab-moffitt/DRPPM-WRAP-Tutorial/blob/main/DRPPM_WRAP_Workflow.PNG" width="600" height="600" />
 </p>
 
 ## DRPPM Installation
