@@ -9,8 +9,6 @@
   <img src="https://github.com/shawlab-moffitt/DRPPM-WRAP-Tutorial/blob/main/DRPPM_WRAP_Workflow.PNG" width="700" height="700" />
 </p>
 
-#<img src="https://github.com/shawlab-moffitt/DRPPM-WRAP-Tutorial/blob/main/DRPPM_WRAP_Workflow.PNG" width="700" height="700">
-
 ## DRPPM Installation
 
 ### Dependencies
