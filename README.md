@@ -5,6 +5,8 @@
 
 [DRPPM](https://github.com/gatechatl/DRPPM) is a library collection of scripts for analyzing DNA/RNA/Proteome/Post-translational Modifications. Below is a example RNA-seq analysis workflow using the DRPPM software on FASTQ files from a study observing the knockdown of the USP7 gene in humans.
 
+<img src="https://github.com/shawlab-moffitt/DRPPM-WRAP-Tutorial/blob/main/DRPPM_WRAP_Workflow.PNG" width="900">
+
 ## DRPPM Installation
 
 ### Dependencies
@@ -71,7 +73,7 @@ SKIP_OPTITYPE = false             # HLA Genotyping Prediction
 
 ### Advanced Setup for Config File
 
-The current pipeline being demonstrated is referencing the hg38 genome build where all of the reference files within the config file are referencing this build. In anticipation of other genome builds being used, we have generated a script to help setup a reference folder for the genome build of your choice. This script generates GTF and BED files as well as a STAR index directory and other annotation files that are used within the pipeline. Below are steps that should be followed to create this reference directory using a hg19_GRCH37 build example where the 'chr' annotation is not used.
+The current pipeline being demonstrated is referencing the hg38 genome build where all of the reference files within the config file are referencing this build. In anticipation of other genome builds being used, we have generated a script to help setup a reference folder for the genome build of your choice. This script generates GTF and BED files as well as a STAR index directory and other annotation files that are used within the pipeline. Below are steps that should be followed to create this reference directory using a hg19_GRCH37 build example where the 'chr' annotation is not used. The reference files generated below will then need to be input to the main .config file described above.
 
 ```bash
 # Make a main directory to house your reference files
@@ -81,7 +83,7 @@ cd hg19_GRCh37.v39lift37_nochr/
 # Run setup.sh
 sh setup.sh [Link to zipped GTF download] [Link to zipped FASTA download] [Prefix] [RemoveCHRflag true/false] [tag: chr or mchr]
 sh setup.sh https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_39/GRCh37_mapping/gencode.v39lift37.annotation.gtf.gz https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_39/GRCh37_mapping/GRCh37.primary_assembly.genome.fa.gz hg19_GRCh37.v39lift37 tru chr
-```
+``` 
 
 ### Construct and Run the Step 1 Script
 
