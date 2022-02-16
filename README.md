@@ -84,7 +84,7 @@ cd hg19_GRCh37.v39lift37_nochr/
 # Copy the setup.sh script into this directory
 # Run setup.sh
 sh setup.sh [Link to zipped GTF download] [Link to zipped FASTA download] [Prefix] [RemoveCHRflag true/false] [tag: chr or mchr]
-sh setup.sh https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_39/GRCh37_mapping/gencode.v39lift37.annotation.gtf.gz https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_39/GRCh37_mapping/GRCh37.primary_assembly.genome.fa.gz hg19_GRCh37.v39lift37 tru chr
+sh setup.sh https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_39/GRCh37_mapping/gencode.v39lift37.annotation.gtf.gz https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_39/GRCh37_mapping/GRCh37.primary_assembly.genome.fa.gz hg19_GRCh37.v39lift37 true chr
 ``` 
 
 ### Construct and Run the Step 1 Script
@@ -205,4 +205,6 @@ module load bam-readcount/0.8.0
 ${line}
 ```
 
+## Post-Processing
 
+### 
