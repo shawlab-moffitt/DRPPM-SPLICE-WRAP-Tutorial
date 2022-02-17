@@ -247,7 +247,7 @@ python htseq_ps_PostProcess.py -ht HTSEQ_Counts_Summary_Symbol.txt -p PSI_Summar
 
 ## Intergation to the DRPPM EASY Shiny App
 
-
+To take this RNAseq analysis further, the user can take count output files and meta data for the experiement and incorporate it in the [DRPPM EASY App](https://github.com/shawlab-moffitt/DRPPM-EASY-ExprAnalysisShinY) for visualization and analysis.
 
 
 
