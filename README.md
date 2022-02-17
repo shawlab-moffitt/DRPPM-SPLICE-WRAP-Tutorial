@@ -211,7 +211,12 @@ When the pipeline commences there may be a large number of files output dependin
 
 ### summarygen.py
 
+The [summarygen.py]() script takes the input of up to 8 summary output files from a single sample of the pipeline and parses them into a single file. The output file is either a two row or two column file of the variable and the value. When the pipeline commences there is an [output2matrix.sh]() script that will compbine all the single sample summary files into one matrix. This can be overviewed for quality control of the data to see if there are any outliers or values aspects of the data that should be looked into more carefully. Below is the example input and parameters of the script.
 
+```python
+python summarygen.py -t [TIN] -j [Junction Annotation] -b [BAM Stat] -l [STAR Log] -e [Infer Experiment] -d [Inner Distance] -r [Read Distribution] -n [Intron Summary] -s [Sample Name] -R [Output in Row Format] -C [Output in Column Format]
+python summarygen.py -t {SAMPLENAME}.Aligned.sortedByCoord.out.summary.txt -j {SAMPLENAME}_junction_annotation_summary_more.txt -b rseqc_bam_stat_report.txt -l {SAMPLENAME}.STAR.Log.final.out -e {SAMPLENAME}_infer_experiment.txt -d {SAMPLENAME}_inner_distance.txt -r {SAMPLENAME}_read_distribution.txt -n {SAMPLENAME}_intron_summary.txt -s {SAMPLENAME} -R
+```
 
 ### ReadCountSummary.py
 
