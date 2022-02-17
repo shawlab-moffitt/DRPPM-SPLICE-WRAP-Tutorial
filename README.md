@@ -15,7 +15,7 @@
 
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
-| RSEQC_2.6.4 | STAR_2.7.6a | ucsctools_1.04.00 | GCC_5.5.0 | python_2.7.9 |
+| RSEQC_2.6.4 | STAR_2.7.6a | python_3.9.5 | GCC_5.5.0 | python_2.7.9 |
 | samtools_1.1 | fastqc_0.11.7 | Bedtools_2.27.1 | R_3.5.1 | bam-readcount_0.8.0 |
 
 ### Git Checkout
@@ -207,11 +207,11 @@ ${line}
 
 ## Post-Processing
 
-When the pipeline commences there may be a large number of files output depending on the parameters given on what functions to run. With each sample being run separately from each other, it is importent to gather the data in the end to be able to relate the samples to one another and draw out possible inferences. There are a variety of post-processing script to help in gathering information from all the samples into a single file.
+When the pipeline commences there may be a large number of files output depending on the parameters given on what functions to run. With each sample being run separately from each other, it is importent to gather the data in the end to be able to relate the samples to one another and draw out possible inferences. There are a variety of post-processing script to help in gathering information from all the samples into a single file. The scripts below utilize Python version 3.9.5.
 
 ### summarygen.py
 
-The [summarygen.py]() script takes the input of up to 8 summary output files from a single sample of the pipeline and parses them into a single file. The output file is either a two row or two column file of the variable and the value. When the pipeline commences there is an [output2matrix.sh]() script that will compbine all the single sample summary files into one matrix. This can be overviewed for quality control of the data to see if there are any outliers or values aspects of the data that should be looked into more carefully. Below is the example input and parameters of the script.
+The [summarygen.py]() script takes the input of up to 8 summary output files from a single sample of the pipeline and parses them into a single file. The output file is either a two row or two column file of the variable and the value. When the pipeline commences there is an [output2matrix.sh]() script that will compbine all the single sample summary files into one matrix. This can be overviewed for quality control of the data to see if there are any outliers or values aspects of the data that should be looked into more carefully.
 
 ```python
 python summarygen.py -t [TIN] -j [Junction Annotation] -b [BAM Stat] -l [STAR Log] -e [Infer Experiment] -d [Inner Distance] -r [Read Distribution] -n [Intron Summary] -s [Sample Name] -R [Output in Row Format] -C [Output in Column Format]
@@ -220,15 +220,30 @@ python summarygen.py -t {SAMPLENAME}.Aligned.sortedByCoord.out.summary.txt -j {S
 
 ### ReadCountSummary.py
 
+The [ReadCountSummary.py]() script takes the input of up to 5 .lst files that contain paths to specific outputs of the pipeline covering HTSEQ gene, exon, and intron counts and FPKM, as well as splicing deficiency and PSI/PSO outputs. The script takes each samples outputs and merges them together based on the feature column to produce a matrix for each type of output file. The HTSEQ and Splicing deficieny outputs will produce files denoting the features as gene symbols and Ensemble IDs. The .lst file contains the location of multiple files per sample, so the output number of files will be greater than the input. 
 
+```python
+python ReadCountSummary.py -ht [HTSEQ gene .lst file] -e [HTSEQ exon .lst file] -i [HTSEQ intron .lst file] -s [Splicing Deficiency .lst file] -p [PSI/PSO .lst file]
+python ReadCountSummary.py -ht htseq_gene_files.lst -e htseq_exon_files.lst -i htseq_intron_files.lst -s splicing_deficiency_files.lst -p psi_pso_files.lst
+```
 
 ### ps_PostProcess.py
 
+The [ps_PostProcess.py]() script takes the output PSI/PSO files from the ReadCountSummary.py script and filters it for further analysis. This script goes through each line and and observes the values based on a criteria and labels the line as "Keep" or "Remove". The line labeled as "Remove" are either all 'NA', all 1.0, all 0.0, or all 'NA' and 1.0 or all 'NA' and 0.0. This means there is no visible differnce between the samples at the exon making it not as informative. The script outputs three files, the unfiltered (with a column denoting "Keep" or "Remove") and filtered matrix, as well as a filter file which just has two columns of the sample name and the "Keep" of "Remove" column.
 
+```python
+python ps_PostProcess.py -p [PSI/PSO Matrix File] -o [Outfile Prefix]
+python ps_PostProcess.py -p PSI_Summary.txt -o PSI
+```
 
 ### htseq_ps_PostProcess.py
 
+The [htseq_ps_PostProcess.py]() script takes the one of the HTSEQ output matrices (using gene symbols) from the ReadCountSummary.py script and one of the PSI/PSO output matrices from either the ReadCountSummary.py or ps_PostProcess.py script. The HTSEQ file will have rows denoted with gene symbols and the PSI/PSO file will denote rows with ExonIDs, so to work with this the gene symbol is extracted from the ExonID in the PSI/PSO file which allows the two files to be merged based on gene symbol. Once matched, the HTSEQ and PSI/PSO samples are separated which produces matrices with the same dimensions that can be compared against each other in further visualizations and analysis. This script outputs three files, an output matrix for bother the HTSEQ and PSI/PSO data as well as a fully merged matrix with the sample columns from the HTSEQ data designated with 'h' and the sample columns from the PSI/PSO data designated with 'p'.
 
+```python
+python htseq_ps_PostProcess.py -ht [HTSEQ Summary File] -p [PSI/PSO Summary File] -oh [HTSEQ outfile name] -op [PSI/PSO outfile name] -om [HTSEQ and PSI/PSO merged outfile name]
+python htseq_ps_PostProcess.py -ht HTSEQ_Counts_Summary_Symbol.txt -p PSI_Summary_filtered.txt -oh HTSEQcounts_psiProcessed.txt -op PSI_htseqcountsProcessed.txt -om merged_PSI_HTSEQcountsProcessed.txt
+```
 
 ## Intergation to the DRPPM EASY Shiny App
 
