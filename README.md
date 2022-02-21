@@ -1,7 +1,7 @@
 
 # DRPPM WRAP Tutorial
 
-## DNA RNA Proteome Post-translational Modifications
+## A comprehensive pipeline for RNA sequencing analysis.
 
 [DRPPM](https://github.com/gatechatl/DRPPM) is a library collection of scripts for analyzing DNA/RNA/Proteome/Post-translational Modifications. Below is a example RNA-seq analysis workflow using the DRPPM software on FASTQ files from a study observing the knockdown of the USP7 gene in humans.
 
