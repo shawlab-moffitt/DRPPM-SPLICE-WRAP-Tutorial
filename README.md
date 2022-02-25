@@ -16,7 +16,7 @@
 |  |  |  |  |  |
 | --- | --- | --- | --- | --- |
 | RSEQC_2.6.4 | STAR_2.7.6a | python_3.9.5 | GCC_5.5.0 | python_2.7.9 |
-| samtools_1.1 | fastqc_0.11.7 | Bedtools_2.27.1 | R_3.5.1 | bam-readcount_0.8.0 |
+| samtools_1.1 | fastqc_0.11.7 | Bedtools_2.27.1 | R_3.5.2 | bam-readcount_0.8.0 |
 
 ### Git Checkout
 
